@@ -43,7 +43,7 @@ async def validate_plate_from_file(file: UploadFile = File(...)):
                 if validate_plate(str(plate)):
                     text=re.sub(r'<[^>]+>', '', plate)
                     text=re.sub(r'[^A-Za-z0-9-]', '', text)
-                    position=validate_plate_and_get_position(line,line)
+                    position=get_position(line,plate)
                     results.append({
                         "fila": index + 1,
                         "columna": 1,
@@ -68,12 +68,6 @@ def write_results_to_csv(results, output_file):
     df.to_csv(output_file, index=False)
 
 # funcion para obtener la posicion de la cadena dentro del archivo
-def validate_plate_and_get_position(plate_text, line):
-    
-    position = 0
-    for word in line.split():
-        if plate_text in word:
-            return position
-        position += len(word) + 1
-    return position
+def get_position(line, plate_text):
+    return line.index(plate_text)
   
