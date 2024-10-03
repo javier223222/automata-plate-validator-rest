@@ -109,10 +109,13 @@ class PlacaEvaluatorDFA:
             
             if self.state=="invalid":
                 return False
+            elif self.state in self.final_states:
+                return self.state in self.final_states
+
         
         
             
-        return self.state in self.final_states
+        
     
     
         
