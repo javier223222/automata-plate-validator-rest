@@ -4,7 +4,7 @@ from app.core.services import validate_plate
 from app.adapters.file_adapter import read_file
 import pandas as pd
 import os
-import re
+
 
 
 router = APIRouter()
@@ -41,15 +41,15 @@ async def validate_plate_from_file(file: UploadFile = File(...)):
             
             for plate in posible_plate:
                 if validate_plate(str(plate)):
-                    text=re.sub(r'<[^>]+>', '', plate)
-                    text=re.sub(r'[^A-Za-z0-9-]', '', text)
+                    
                     position=get_position(line,plate)
+
                    
                     
                     results.append({
                         "fila": index + 1,
                         "columna": 1,
-                        "texto": text,
+                        "texto": str(plate),
                         "posicion": position + 1,
                     })
                     

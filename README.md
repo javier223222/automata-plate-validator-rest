@@ -26,7 +26,7 @@ This project is a RESTful API built using FastAPI, designed for evaluate plates 
 
 ### Prerequisites
 
-- Python 3.9
+- Python 3.11.9 (could be 3.11+ but for a good working order i recomend the 3.11 )
 - Virtualenv (optional but recommended)
 
 
