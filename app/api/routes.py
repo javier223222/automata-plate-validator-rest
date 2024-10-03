@@ -27,7 +27,6 @@ async def validate_plate_from_file(file: UploadFile = File(...)):
             for col_index,value in enumerate(row):
                 textevaluate=str(value)
                 textevaluate=textevaluate.split()
-                
                 for text in textevaluate:
                   if validate_plate(str(text)):
                      results.append({
@@ -39,11 +38,14 @@ async def validate_plate_from_file(file: UploadFile = File(...)):
         
         for index,line in enumerate(patterns):
             posible_plate = line.split()
+            
             for plate in posible_plate:
                 if validate_plate(str(plate)):
                     text=re.sub(r'<[^>]+>', '', plate)
                     text=re.sub(r'[^A-Za-z0-9-]', '', text)
                     position=get_position(line,plate)
+                   
+                    
                     results.append({
                         "fila": index + 1,
                         "columna": 1,

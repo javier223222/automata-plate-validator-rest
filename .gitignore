@@ -134,3 +134,4 @@ cython_debug/
 # FastAPI specific
 *.db
 *.sqlite3
+.vercel

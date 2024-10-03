@@ -80,11 +80,11 @@ class PlacaEvaluatorDFA:
         elif current_state == "q22": # Estado q22
             if self.is_valid_number(char): # Verifica si es un número
                 return "q23" # Cambia al estado q23
-        elif current_state == "q23": # Estado q23
-            if self.is_valid_number(char): # Verifica si es un número
+        elif current_state == "q23":
+             # Estado q23
+            if self.is_valid_number(char) or self.is_valid_letter(char): # Verifica si es un número
                 return "q24"    # Cambia al estado q24
-            elif self.is_valid_letter(char): # Verifica si es una letra
-                return "q24"   # Cambia al estado q24
+             
         elif current_state == "q24": # Estado q24
             if char == "-":  # Verifica si es un guión
                 return "q17" # Cambia al estado q17

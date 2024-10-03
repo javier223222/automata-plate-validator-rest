@@ -2,6 +2,7 @@ import pandas as pd
 from docx import Document
 from bs4 import BeautifulSoup
 
+
 def read_file(file_path):
     try:
         if file_path.filename.endswith('.xlsx') or file_path.filename.endswith('.csv'):
@@ -30,9 +31,9 @@ def read_docx(file_path):
 
 def read_html(file_path):
     try:
-      content=file_path.read().decode('utf-8')
-      lines = content.splitlines()
-      return [line.strip() for line in lines if line.strip()]
+        content = file_path.read().decode('utf-8')
+        lines = content.splitlines()  
+        return lines
 
     except Exception as e:
         raise ValueError(str(e))
